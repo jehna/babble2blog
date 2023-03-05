@@ -38,3 +38,17 @@ export async function whisper(audioFilePath: string) {
   }
   return res.text;
 }
+
+export async function cachedWhisper(audioFilePath: string) {
+  await fs.mkdir("cache", { recursive: true });
+  const cacheFilePath = `cache/${audioFilePath
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "_")}.txt`;
+  try {
+    return await fs.readFile(cacheFilePath, "utf-8");
+  } catch (e) {
+    const text = await whisper(audioFilePath);
+    await fs.writeFile(cacheFilePath, text);
+    return text;
+  }
+}

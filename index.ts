@@ -1,4 +1,4 @@
-import { whisper } from "./src/whisper";
+import { cachedWhisper } from "./src/whisper";
 import fs from "fs/promises";
 import { textToBlogPost } from "./src/gpt3";
 
@@ -10,7 +10,7 @@ console.log(
 );
 
 async function run() {
-  const text = await whisper(audioFilePath);
+  const text = await cachedWhisper(audioFilePath);
   console.log(text);
   const blogOutput = await textToBlogPost(text);
   console.log(blogOutput);
