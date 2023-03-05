@@ -33,6 +33,15 @@ This project aims to be a tool that:
 * Demonstrate state-of-the-art AI capabilities (as in 2023)
 * Makes my life easier
 
+### About the logo
+
+The logo of this project was created using DALL·E, with the prompt:
+
+> Icon for app that creates blog posts from speech, dribble, concept art, iOS
+
+The [generated result](https://labs.openai.com/s/x8QFNJqeuQRnw0w0Y9HhvewP) was
+then polished by hand with Inkscape.
+
 ## Contributing
 
 At the moment this is a very crude proof-of-concept. If you still would like to
