@@ -1,17 +1,20 @@
 import { whisper } from "./src/whisper";
 import fs from "fs/promises";
+import { textToBlogPost } from "./src/gpt3";
 
 const audioFilePath = process.argv[2];
-const textOutputPath = process.argv[3];
+const blogTextOutputPath = process.argv[3];
 
 console.log(
-  `converting ${audioFilePath} to text and saving to ${textOutputPath}`
+  `converting ${audioFilePath} to a blog post and saving to ${blogTextOutputPath}`
 );
 
 async function run() {
   const text = await whisper(audioFilePath);
-  fs.writeFile(textOutputPath, text);
   console.log(text);
+  const blogOutput = await textToBlogPost(text);
+  console.log(blogOutput);
+  fs.writeFile(blogTextOutputPath, blogOutput.trim());
 }
 
 run();
