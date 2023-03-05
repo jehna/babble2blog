@@ -20,9 +20,9 @@ type Gpt3Response = {
 
 function makeBlogPostPrompt(spokenInput: string) {
   return `
-Write a blog post for a tech blog in from this spoken input. The blog post should have:
-* A catchy title
-* Ingress
+Write an entertaining blog post for a tech blog from this spoken input. The blog post should have:
+* A short, catchy title
+* Short summary paragraph
 * H1 and H2 level headings
 
 Here's the input:
