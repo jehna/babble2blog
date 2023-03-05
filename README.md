@@ -38,7 +38,7 @@ Whisper and GPT-3 are paid APIs (although they're super cheap).
 
 This project aims to be a tool that:
 * Makes it easy to generate blog posts when you don't have access to keyboard
-* Demonstrate state-of-the-art AI capabilities (as in 2023)
+* Demonstrates state-of-the-art AI capabilities (as of 2023)
 * Makes my life easier
 
 ### About the logo
