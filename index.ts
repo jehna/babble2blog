@@ -1,4 +1,4 @@
-import { whisper } from "./src/openai";
+import { whisper } from "./src/whisper";
 import fs from "fs/promises";
 
 const audioFilePath = process.argv[2];

@@ -23,6 +23,8 @@ export async function whisper(audioFilePath: string) {
   const form = new FormData();
   form.append("model", "whisper-1");
   form.append("file", new Blob([data], { type: "audio/mpeg" }), "openai.mp3");
+  form.append("prompt", "A podcast episode");
+  form.append("language", "en");
   const req = await fetch("https://api.openai.com/v1/audio/transcriptions", {
     method: "POST",
     headers: {
