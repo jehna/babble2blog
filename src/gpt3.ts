@@ -1,6 +1,6 @@
 import { OPENAI_TOKEN } from "./secrets";
 
-type Gpt3Response = {
+interface Gpt3Response {
   id: string;
   object: "text_completion";
   created: number;
@@ -16,7 +16,7 @@ type Gpt3Response = {
     completion_tokens: 7;
     total_tokens: 12;
   };
-};
+}
 
 function makeBlogPostPrompt(spokenInput: string) {
   return `
