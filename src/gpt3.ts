@@ -6,9 +6,11 @@ interface Gpt3Response {
   created: number;
   model: "text-davinci-003";
   choices: {
-    text: string;
+    message: {
+      role: "user" | "system";
+      content: string;
+    };
     index: 0;
-    logprobs: null;
     finish_reason: string;
   }[];
   usage: {
@@ -19,17 +21,19 @@ interface Gpt3Response {
 }
 
 function makeBlogPostPrompt(spokenInput: string) {
-  return `
+  return [
+    {
+      role: "system",
+      content: `
 Write an entertaining blog post for a tech blog from this spoken input. The blog post should have:
 * A short, catchy title
 * Short summary paragraph
 * H1 and H2 level headings
 
-Here's the input:
-> ${spokenInput.split("\n").join("\n> ")}
-
-Markdown formatted blog post:
-`.trim();
+Important! Answer only in Markdown format`.trim(),
+    },
+    { role: "user", content: spokenInput.trim() },
+  ];
 }
 
 /**
@@ -50,15 +54,15 @@ Markdown formatted blog post:
  * }'
  */
 export async function textToBlogPost(spokenInput: string) {
-  const req = await fetch("https://api.openai.com/v1/completions", {
+  const req = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${OPENAI_TOKEN}`,
     },
     body: JSON.stringify({
-      model: "text-davinci-003",
-      prompt: makeBlogPostPrompt(spokenInput),
+      model: "gpt-3.5-turbo",
+      messages: makeBlogPostPrompt(spokenInput),
       temperature: 0.7,
       max_tokens: 2000,
       top_p: 1,
@@ -67,5 +71,5 @@ export async function textToBlogPost(spokenInput: string) {
     }),
   });
   const res: Gpt3Response = await req.json();
-  return res.choices[0].text;
+  return res.choices[0].message.content;
 }
