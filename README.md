@@ -34,6 +34,15 @@ You need an API key for OpenAI's Whisper API and GPT-3 API. You can get these by
 registering at the [OpenAI's website](https://openai.com). Note that both
 Whisper and GPT-3 are paid APIs (although they're super cheap).
 
+Create a file called `.env` in the root of the project and add the following
+line:
+
+```
+OPENAI_TOKEN=your-token-here
+```
+
+Alternatively, you can set the `OPENAI_TOKEN` environment variable.
+
 ## Features
 
 This project aims to be a tool that:
