@@ -64,7 +64,6 @@ export async function textToBlogPost(spokenInput: string) {
       model: "gpt-3.5-turbo",
       messages: makeBlogPostPrompt(spokenInput),
       temperature: 0.7,
-      max_tokens: 2000,
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
