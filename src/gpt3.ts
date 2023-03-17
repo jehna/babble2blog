@@ -25,10 +25,7 @@ function makeBlogPostPrompt(spokenInput: string) {
     {
       role: "system",
       content: `
-Write an entertaining blog post for a tech blog from this spoken input. The blog post should have:
-* A short, catchy title
-* Short summary paragraph
-* H1 and H2 level headings
+Write an entertaining blog post from this spoken input. The blog post should have a short, catchy title.
 
 Important! Answer only in Markdown format`.trim(),
     },
@@ -61,7 +58,7 @@ export async function textToBlogPost(spokenInput: string) {
       Authorization: `Bearer ${OPENAI_TOKEN}`,
     },
     body: JSON.stringify({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages: makeBlogPostPrompt(spokenInput),
       temperature: 0.7,
       top_p: 1,
