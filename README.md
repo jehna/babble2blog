@@ -4,7 +4,7 @@
 > Speech to Blog Post Generator
 
 This tool takes a speech input and drives it through OpenAPI's Whisper API to
-transcribe the speech into text. The text is then fed into OpenAI's GPT-3 model
+transcribe the speech into text. The text is then fed into OpenAI's GPT-4 model
 to generate a blog post.
 
 ## See an example!
@@ -30,9 +30,9 @@ input audio file `speech-input.mp3` and outputs the blog post to
 
 ### Prerequisites
 
-You need an API key for OpenAI's Whisper API and GPT-3 API. You can get these by
+You need an API key for OpenAI's Whisper API and GPT-4 API. You can get these by
 registering at the [OpenAI's website](https://openai.com). Note that both
-Whisper and GPT-3 are paid APIs (although they're super cheap).
+Whisper and GPT-4 are paid APIs (although they're super cheap).
 
 Create a file called `.env` in the root of the project and add the following
 line:

@@ -1,6 +1,6 @@
 import { cachedWhisper } from "./src/whisper";
 import fs from "fs/promises";
-import { textToBlogPost } from "./src/gpt3";
+import { textToBlogPost } from "./src/gpt4";
 
 const audioFilePath = process.argv[2];
 const blogTextOutputPath = process.argv[3];

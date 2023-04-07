@@ -1,10 +1,10 @@
 import { OPENAI_TOKEN } from "./secrets";
 
-interface Gpt3Response {
+interface Gpt4Response {
   id: string;
   object: "text_completion";
   created: number;
-  model: "text-davinci-003";
+  model: string;
   choices: {
     message: {
       role: "user" | "system";
@@ -34,7 +34,7 @@ Important! Answer only in Markdown format`.trim(),
 }
 
 /**
- * Text to blog post using GPT-3
+ * Text to blog post using GPT-4
  *
  * CURL Example:
  * curl https://api.openai.com/v1/completions \
@@ -66,6 +66,6 @@ export async function textToBlogPost(spokenInput: string) {
       presence_penalty: 0,
     }),
   });
-  const res: Gpt3Response = await req.json();
+  const res: Gpt4Response = await req.json();
   return res.choices[0].message.content;
 }
