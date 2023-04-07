@@ -43,6 +43,13 @@ OPENAI_TOKEN=your-token-here
 
 Alternatively, you can set the `OPENAI_TOKEN` environment variable.
 
+### Using a hosted version
+
+If you don't have access to GPT-4 API, you can use a hosted micro-SaaS version
+of this tool:
+
+https://magicmemos.com/
+
 ## Features
 
 This project aims to be a tool that:
